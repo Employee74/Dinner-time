@@ -3,6 +3,7 @@
 from sklearn import tree
 from datetime import datetime
 import time
+import numpy as np
 
 date_format = "%d/%m/%Y"
 dayFile = open("days.txt", "r")
@@ -25,14 +26,15 @@ for line in mealFile:
 	meals.append(line.replace('\n',''))
 mealFile.close()
 
-'''
-predictionResults = [] #This should be made ofcourse
-
-print "Top predictions are"
-print "1.",predictionResults[0]
-print "2.",predictionResults[1]
-print "3.",predictionResults[2]
-'''
+def predict_meal(dates,meals,x):
+	diffDays = np.reshape(dates,len(dates), 1))
+	svr_len = SVR(kernel= 'linear', C=1e3)
+	svr_poly = SVR(kernel = 'ploy', C=1e3, degree = 2)
+	svr_rbf = SVR(kernel = 'rbf', C=1e3, gamma =0.1)
+	svr_lin.fit(diffDays, meals)
+	svr_poly.fit(diffDays,meals)
+	svr_rbf.fit(diffDays,meals)
+	plt.scatter(
 
 print "Top predictions are"
 print "1.",meals[0]
